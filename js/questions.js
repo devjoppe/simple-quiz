@@ -2,22 +2,22 @@ let questions = [
     {
         question: 'What is my name?',
         answers: [
-            { a1: 'Joakim', c1: true },
-            { a2: 'Nelson', c2: false }
+            { ans: 'Joakim', check: true },
+            { ans: 'Nelson', check: false }
         ]
     },
     {
         question: 'What kind of dog is Roxy?',
         answers: [
-            { a1: 'Poodle', c1: false },
-            { a2: 'Welsh Springer Spaniel', c2: true }
+            { ans: 'Poodle', check: false },
+            { ans: 'Welsh Springer Spanielss', check: true }
         ]
     },
     {
         question: 'What is my wifes name?',
         answers: [
-            { a1: 'Frida', c1: false },
-            { a2: 'Hanna', c2: true }
+            { ans: 'Frida', check: false },
+            { ans: 'Hanna', check: true }
         ]
     }
 ]

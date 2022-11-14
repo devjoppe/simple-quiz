@@ -7,10 +7,10 @@
 
 const quizContainer = document.querySelector('.container');
 
-const qId = 0; // Maybe use question ID to everyanswer ID.
-
+let qId = 0; // Maybe use question ID to everyanswer ID.
 
 Object.values(questions).forEach(questionEntry => {
+    
     console.log(questionEntry.question);
 
     // Create the question div
@@ -23,5 +23,32 @@ Object.values(questions).forEach(questionEntry => {
     questionText.className = 'questiontext';
     questionText.textContent = questionEntry.question;
     questionBox.appendChild(questionText);
+
+    // Answers with input radio
+    const questionAnswer = document.createElement('input');
+    questionAnswer.setAttribute('type', 'radio');
+    
+    //let answerA = questionEntry.answers[0];
+    //let answerB = questionEntry.answers[1];
+    let answers = questionEntry.answers;
+    //console.log(questionEntry.answers);
+    //console.log(answerA.a1, answerB.a2);
+
+    for(let i = 0; i < answers.length; i++) {
+        console.log(answers[i].ans);
+        //console.log(questionId);
+
+        qId++;
+        console.log(qId);
+
+        // Label
+        const questionLabel = document.createElement('label');
+        questionLabel.className = 'd-block';
+        questionLabel.setAttribute('for', qId);
+    
+        questionLabel.textContent = answers[i].ans;
+        questionBox.appendChild(questionLabel);
+
+    }
     
 });
