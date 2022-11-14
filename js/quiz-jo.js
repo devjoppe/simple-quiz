@@ -26,11 +26,7 @@ Object.values(questions).forEach(questionEntry => {
     questionText.textContent = questionEntry.question;
     questionBox.appendChild(questionText);
     
-    //let answerA = questionEntry.answers[0];
-    //let answerB = questionEntry.answers[1];
     let answers = questionEntry.answers;
-    //console.log(questionEntry.answers);
-    //console.log(answerA.a1, answerB.a2);
 
     for(let i = 0; i < answers.length; i++) {
         console.log(answers[i].ans);
@@ -43,6 +39,7 @@ Object.values(questions).forEach(questionEntry => {
         const questionLabel = document.createElement('label');
         questionLabel.className = 'd-block';
         questionLabel.setAttribute('for', qId);
+        questionLabel.setAttribute('id', 'label-'+qId);
     
         questionLabel.textContent = answers[i].ans;
         questionBox.appendChild(questionLabel);
@@ -59,10 +56,37 @@ Object.values(questions).forEach(questionEntry => {
     
 });
 
+let calcPoints = 0;
+
 quizForm.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log("Clicking on the form");
 
-    
+    qId = 0;
 
+    Object.values(questions).forEach(checkAnswers => {
+
+        let check = checkAnswers.answers;
+        
+        for(let i = 0; i < check.length; i++) {
+            qId++;
+            
+            // Checks if the radio button is selected and if it is true
+            let userAnwswer = document.querySelector('input[id="'+qId+'"]:checked');
+            let labelCheck = document.querySelector('#label-'+qId);
+
+            if (userAnwswer) {
+                let answer = userAnwswer.value;
+                if (answer == 'true') {
+                    // Adds 1 point to the score.
+                    calcPoints++;
+                    labelCheck.classList.add('correct');
+                    console.log(calcPoints);
+                } else {
+                    // Set red color on wrong answer.
+                    labelCheck.classList.add('wrong');
+                }
+            }
+        }
+    });
 });
