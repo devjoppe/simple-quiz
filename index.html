@@ -9,32 +9,18 @@
     <link rel="stylesheet" href="styles/css/styles.min.css" />
 </head>
 <body>
-
     <form id="quiz">
-
-        <div class="container">
-
-        <!-- Question template-->
-        <!-- <div class="d-block">
-            <span class="question">Detta är min fråga</span>
-            <label class="d-block" for="q1-1">
-                <input id="q1-1" type="radio" name="q1" value="false">
-                Svar A
-            </label>
-            <label class="d-block" for="q1-1">
-                <input id="q1-2" type="radio" name="q1" value="true">
-                Svar B
-            </label>
-        </div> -->
-
-        
-
+        <div class="container quiz-questions">
+            <!-- Quiz questions -->
         </div>
-
-        <input class="mt-4" type="submit" value="Rätta">
-
+        <div class="container quiz-result mt-4">
+            <!-- Quiz results -->
+        </div>
+        <div class="container">
+            <input class="submit mt-4" type="submit" value="Rätta">
+            <input class="playagain hide mt-4" type="button" value="Spela igen">
+        </div>
     </form>
-
     <script src="js/questions.js"></script>
     <script src="js/quiz-jo.js"></script>
     <script src="js/bootstrap.min.js"></script>

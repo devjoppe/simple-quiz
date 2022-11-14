@@ -19,5 +19,12 @@ let questions = [
             { ans: 'Frida', check: false },
             { ans: 'Hanna', check: true }
         ]
+    },
+    {
+        question: 'Hur många bultar är det i Ölandsbron',
+        answers: [
+            { ans: '10 579', check: true },
+            { ans: '5 895', check: false }
+        ]
     }
 ]

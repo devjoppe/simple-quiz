@@ -5,15 +5,16 @@
 // 3-a: Knapp, submit som har en funktion är svaren kontrolleras
 // 3-b: När svaren är klara - kör en funktion som skriver ut resultatet
 
-const quizContainer = document.querySelector('.container');
+const quizContainer = document.querySelector('.quiz-questions');
 const quizForm = document.querySelector('#quiz');
 
 let qId = 0;
+let questionNumber = 0;
 
 // Setup the form and display it in the DOM.
 Object.values(questions).forEach(questionEntry => {
-    
-    console.log(questionEntry.question);
+
+    questionNumber++;
 
     // Create the question div
     const questionBox = document.createElement('div');
@@ -23,17 +24,14 @@ Object.values(questions).forEach(questionEntry => {
     // Create the question title
     const questionText = document.createElement('span');
     questionText.className = 'questiontext';
-    questionText.textContent = questionEntry.question;
+    questionText.textContent = questionNumber + '. ' + questionEntry.question;
     questionBox.appendChild(questionText);
     
     let answers = questionEntry.answers;
 
     for(let i = 0; i < answers.length; i++) {
-        console.log(answers[i].ans);
-        //console.log(questionId);
 
         qId++;
-        console.log(qId);
 
         // Label
         const questionLabel = document.createElement('label');
@@ -48,9 +46,8 @@ Object.values(questions).forEach(questionEntry => {
         const questionAnswer = document.createElement('input');
         questionAnswer.setAttribute('type', 'radio');
         questionAnswer.setAttribute('id', qId);
+        questionAnswer.setAttribute('name', questionNumber);
         questionAnswer.setAttribute('value', answers[i].check)
-
-        console.log(answers[i].check);
         questionLabel.prepend(questionAnswer);
     }
     
@@ -58,9 +55,14 @@ Object.values(questions).forEach(questionEntry => {
 
 let calcPoints = 0;
 
+// Select my buttons
+const playAgain = document.querySelector('.playagain');
+const submitAnswer = document.querySelector('.submit');
+
 quizForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log("Clicking on the form");
+
+    console.log("Clicked the submit");
 
     qId = 0;
 
@@ -81,7 +83,6 @@ quizForm.addEventListener('submit', (e) => {
                     // Adds 1 point to the score.
                     calcPoints++;
                     labelCheck.classList.add('correct');
-                    console.log(calcPoints);
                 } else {
                     // Set red color on wrong answer.
                     labelCheck.classList.add('wrong');
@@ -89,4 +90,29 @@ quizForm.addEventListener('submit', (e) => {
             }
         }
     });
+
+    // Toggle visibillity
+    playAgain.classList.toggle('hide');
+    submitAnswer.classList.toggle('hide');
+    
+    console.log(calcPoints, qId);
+
+    displayPoints(calcPoints);
+
 });
+
+playAgain.addEventListener('click', () => {
+    location.reload();
+})
+
+const displayPoints = pointNumber => {
+    console.log('Calculating numbers:', pointNumber, questionNumber);
+
+    totalProcent = pointNumber / questionNumber * 100;
+    
+    const showResult = document.querySelector('.quiz-result');
+    const resultText = document.createElement('span');
+
+    resultText.textContent = `${pointNumber} av ${questionNumber} (${totalProcent}%)`;
+    showResult.appendChild(resultText);
+}
