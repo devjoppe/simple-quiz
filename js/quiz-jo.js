@@ -9,8 +9,19 @@ const quizContainer = document.querySelector('.container');
 
 const qId = 0; // Maybe use question ID to everyanswer ID.
 
-// Print out the values
+
 Object.values(questions).forEach(questionEntry => {
     console.log(questionEntry.question);
-    quizContainer.innerHTML += questionEntry.question + '<br>';
+
+    // Create the question div
+    const questionBox = document.createElement('div');
+    questionBox.className = 'd-block';
+    quizContainer.appendChild(questionBox);
+
+    // Create the question title
+    const questionText = document.createElement('span');
+    questionText.className = 'questiontext';
+    questionText.textContent = questionEntry.question;
+    questionBox.appendChild(questionText);
+    
 });
