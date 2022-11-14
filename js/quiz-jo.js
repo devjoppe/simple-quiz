@@ -6,16 +6,18 @@
 // 3-b: När svaren är klara - kör en funktion som skriver ut resultatet
 
 const quizContainer = document.querySelector('.container');
+const quizForm = document.querySelector('#quiz');
 
-let qId = 0; // Maybe use question ID to everyanswer ID.
+let qId = 0;
 
+// Setup the form and display it in the DOM.
 Object.values(questions).forEach(questionEntry => {
     
     console.log(questionEntry.question);
 
     // Create the question div
     const questionBox = document.createElement('div');
-    questionBox.className = 'd-block';
+    questionBox.className = 'd-block mt-4';
     quizContainer.appendChild(questionBox);
 
     // Create the question title
@@ -23,10 +25,6 @@ Object.values(questions).forEach(questionEntry => {
     questionText.className = 'questiontext';
     questionText.textContent = questionEntry.question;
     questionBox.appendChild(questionText);
-
-    // Answers with input radio
-    const questionAnswer = document.createElement('input');
-    questionAnswer.setAttribute('type', 'radio');
     
     //let answerA = questionEntry.answers[0];
     //let answerB = questionEntry.answers[1];
@@ -49,6 +47,22 @@ Object.values(questions).forEach(questionEntry => {
         questionLabel.textContent = answers[i].ans;
         questionBox.appendChild(questionLabel);
 
+        // Input radio
+        const questionAnswer = document.createElement('input');
+        questionAnswer.setAttribute('type', 'radio');
+        questionAnswer.setAttribute('id', qId);
+        questionAnswer.setAttribute('value', answers[i].check)
+
+        console.log(answers[i].check);
+        questionLabel.prepend(questionAnswer);
     }
     
+});
+
+quizForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log("Clicking on the form");
+
+    
+
 });
