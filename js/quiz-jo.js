@@ -112,6 +112,7 @@ const displayPoints = pointNumber => {
     
     const showResult = document.querySelector('.quiz-result');
     const resultText = document.createElement('span');
+    resultText.className = 'score';
 
     resultText.textContent = `${pointNumber} av ${questionNumber} (${totalProcent}%)`;
     showResult.appendChild(resultText);

@@ -1,30 +1,72 @@
 let questions = [
     {
-        question: 'What is my name?',
+        question: 'What country has the highest life expectancy?',
         answers: [
-            { ans: 'Joakim', check: true },
-            { ans: 'Nelson', check: false }
+            { ans: 'Hong Kong', check: true },
+            { ans: 'Japan', check: false }
         ]
     },
     {
-        question: 'What kind of dog is Roxy?',
+        question: 'Which language has the more native speakers?',
         answers: [
-            { ans: 'Poodle', check: false },
-            { ans: 'Welsh Springer Spanielss', check: true }
+            { ans: 'English', check: false },
+            { ans: 'Spanish', check: true }
         ]
     },
     {
-        question: 'What is my wifes name?',
+        question: 'What is the most common surname in the United States?',
         answers: [
-            { ans: 'Frida', check: false },
-            { ans: 'Hanna', check: true }
+            { ans: 'Jonson', check: false },
+            { ans: 'Smith', check: true }
         ]
     },
     {
-        question: 'Hur många bultar är det i Ölandsbron',
+        question: 'What company was originally called "Cadabra"?',
         answers: [
-            { ans: '10 579', check: true },
-            { ans: '5 895', check: false }
+            { ans: 'Amazon', check: true },
+            { ans: 'Walmart', check: false }
+        ]
+    },
+    {
+        question: 'How many ghosts chase Pac-Man at the start of each game?',
+        answers: [
+            { ans: '4', check: true },
+            { ans: '5', check: false }
+        ]
+    },
+    {
+        question: 'What game studio makes the Red Dead Redemption series?',
+        answers: [
+            { ans: 'Bohemia Interactive', check: false },
+            { ans: 'Rockstar Games', check: true }
+        ]
+    },
+    {
+        question: 'Which planet has the most moons?',
+        answers: [
+            { ans: 'Saturn', check: true },
+            { ans: 'Jupiter', check: false }
+        ]
+    },
+    {
+        question: 'What country has the most islands?',
+        answers: [
+            { ans: 'Finland', check: false },
+            { ans: 'Sweden', check: true }
+        ]
+    },
+    {
+        question: 'How many hearts does an octopus have?',
+        answers: [
+            { ans: '3', check: true },
+            { ans: '1', check: false }
+        ]
+    },
+    {
+        question: 'Where is the strongest human muscle located?',
+        answers: [
+            { ans: 'Neck', check: false },
+            { ans: 'Jaw', check: true }
         ]
     }
 ]

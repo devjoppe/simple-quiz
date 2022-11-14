@@ -7,13 +7,23 @@ input[type="radio"] {
 }
 
 .wrong {
-    background:coral;
+    background: #f8d7da;
 }
 
 .correct {
-    background: cadetblue;
+    background: #d1e7dd;
 }
 
 .hide {
     display: none;
+}
+
+.quiz-result {
+    font-size: 24px;
+    background: #c6e9f1;
+}
+
+.score {
+    display: inline-block;
+    padding: 16px;
 }
